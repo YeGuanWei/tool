@@ -85,7 +85,7 @@ public class EmailController {
         multipart.addBodyPart(contentPart);
 
         // 添加附件
-        for (String file : files) {
+        /*for (String file : files) {
             File usFile = new File(file);
             MimeBodyPart fileBody = new MimeBodyPart();
             DataSource source = new FileDataSource(file);
@@ -93,7 +93,7 @@ public class EmailController {
             sun.misc.BASE64Encoder enc = new sun.misc.BASE64Encoder();
             fileBody.setFileName("=?GBK?B?" + enc.encode(usFile.getName().getBytes()) + "?=");
             multipart.addBodyPart(fileBody);
-        }
+        }*/
         message.setContent(multipart);
 
         // 得到邮差对象
