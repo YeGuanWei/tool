@@ -19,7 +19,55 @@ public class EasyPoiController {
 
     public static void main(String[] args) throws Exception {
         //trendsExport();
-        templateExport();
+        //templateExport();
+        trendsExport2();
+    }
+
+    /**
+     * 动态导出2
+     */
+    public static void trendsExport2() {
+        try {
+            List<ExcelExportEntity> entity = new ArrayList<ExcelExportEntity>();
+
+            entity.add(new ExcelExportEntity("姓名", "name"));
+            entity.add(new ExcelExportEntity("性别", "sex"));
+
+            ExcelExportEntity excelEntity = new ExcelExportEntity("合并", "students");
+            excelEntity.setNeedMerge(true);
+            List<ExcelExportEntity> temp = new ArrayList<ExcelExportEntity>();
+            temp.add(new ExcelExportEntity("合并1", "students1"));
+            temp.add(new ExcelExportEntity("合并2", "students2"));
+            excelEntity.setList(temp);
+
+            entity.add(excelEntity);
+
+            List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+            for (int i = 1; i < 6; i++) {
+                Map map = new HashMap();
+                map.put("name", "姓名 " + i);
+                map.put("sex", "性别 " + i);
+
+                List<Map> listMap = new ArrayList<>();
+                Map map1 = new HashMap();
+                map1.put("students1","合并1" + i);
+                listMap.add(map1);
+
+                map.put("students", listMap);
+
+                list.add(map);
+            }
+
+            // 把我们构造好的bean对象放到params就可以了
+            Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams(), entity, list);
+            FileOutputStream fos = new FileOutputStream("C:/excel/ExcelExportForMap.xls");
+            workbook.write(fos);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
