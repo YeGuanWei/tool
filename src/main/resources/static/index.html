@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>访问地址: http://localhost:8080/index.html</title>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>>
+    <script type="text/javascript"></script>
+
+    <script src="indexJS.js"></script>
+
+    <style>
+        html,body{margin:0px;height:100%;}
+        #dv{position:relative;width:100%;height:100%;margin:0px auto;}
+        #imgCheckInfo{display:none}
+        .img .marker{position:absolute;}
+        #showCheckImg{width:100%;height:100%}
+        #freshIcon{color:#3464ff;font-size: 1.5em}
+        #imgCheckText{font-size:0.6em;color:#ff4546}
+    </style>
+
 </head>
+
 <body>
-    访问地址: http://localhost:8080/index.html
+
+    <div>
+        <!--每点击一次拼接记录对应坐标-->
+        <input name="imgCheckInfo" id="imgCheckInfo" type="text"></input>
+        <!--生成img图像-->
+        <div class="img"  id="dv" >
+            <img id="showCheckImg" alt="点互式验证"/>
+        </div>
+        <!--生成刷新图标-->
+        <i id="freshIcon" class=" pull-left fa fa-refresh"  οnclick="refreshImg()"></i>
+        <!--输出提示信息-->
+        <span class="pull-left" id="imgCheckText"></span>
+    </div>
+
 </body>
+
 </html>
