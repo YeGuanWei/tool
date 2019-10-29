@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Random;
 
-
 @Controller
 @RequestMapping("/ImgCheck")
 public class ImgCheckController {
@@ -30,20 +29,20 @@ public class ImgCheckController {
 
     @ResponseBody
     @RequestMapping("/getImg")
-    public void getImg(HttpServletResponse response, HttpServletRequest request) throws IOException{
-        HashMap<String,Object> hashMap=TouchVerificationUtil.createImg(6,3,100,555,18,Color.white,"/static/test.png");
-        request.getSession().setAttribute("correctCheckCode",hashMap.get("correctCheckCode"));
-        ImageIO.write((BufferedImage)hashMap.get("BufferedImage"), "PNG", response.getOutputStream()); //将图片输出
+    public void getImg(HttpServletResponse response, HttpServletRequest request) throws IOException {
+        HashMap<String, Object> hashMap = TouchVerificationUtil.createImg(6, 3, 100, 555, 18, Color.white, "/static/test2.png");
+        request.getSession().setAttribute("correctCheckCode", hashMap.get("correctCheckCode"));
+        ImageIO.write((BufferedImage) hashMap.get("BufferedImage"), "PNG", response.getOutputStream()); //将图片输出
     }
 
     @ResponseBody
     @PostMapping("/checkImg")
-    public JsonResult checkImg(HttpServletRequest request,String imgCheckInfo) {
-        String correctCheckCode=(String)request.getSession().getAttribute("correctCheckCode");
-        if (TouchVerificationUtil.checkImg(correctCheckCode,imgCheckInfo)) {  //若前端上传的坐标在session中记录的坐标的一定范围内则验证成功
-            return new JsonResult("200","验证成功！");
+    public JsonResult checkImg(HttpServletRequest request, String imgCheckInfo) {
+        String correctCheckCode = (String) request.getSession().getAttribute("correctCheckCode");
+        if (TouchVerificationUtil.checkImg(correctCheckCode, imgCheckInfo)) {  //若前端上传的坐标在session中记录的坐标的一定范围内则验证成功
+            return new JsonResult("200", "验证成功！");
         } else {
-            return new JsonResult("200","验证失败，请重新刷新再次验证！");
+            return new JsonResult("201", "验证失败，请重新刷新再次验证！");
         }
     }
 
