@@ -154,7 +154,7 @@ public class EasyPoiController {
      * @throws Exception
      */
     public static void templateExport() throws Exception {
-        TemplateExportParams params = new TemplateExportParams("./doc/test.xlsx");
+        TemplateExportParams params = new TemplateExportParams("./doc/EasyPoiExcel.xlsx");
 
         List<Map<String, String>> listMap = new ArrayList<Map<String, String>>();
         for (int i = 0; i < 4; i++) {
@@ -174,7 +174,7 @@ public class EasyPoiController {
         if (!savefile.exists()) {
             savefile.mkdirs();
         }
-        FileOutputStream fos = new FileOutputStream("C:/excel/test.xlsx");
+        FileOutputStream fos = new FileOutputStream("C:/excel/EasyPoiExcel.xlsx");
         workbook.write(fos);
         fos.close();
     }
