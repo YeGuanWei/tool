@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.*;
+import com.tool.entity.JsoupHttpDTO;
 
 /**
  * [Java爬虫] 使用 HtmlUnit + Xpath 模拟点击、动态获取信息
@@ -12,7 +13,14 @@ import com.gargoylesoftware.htmlunit.html.*;
 public class JsoupHttpClientController {
 
     public static void main(String[] args) throws Exception {
-        taxMP();
+        JsoupHttpDTO dto = new JsoupHttpDTO();
+        dto.setMerId("89900000046015644730");
+        dto.setCardNo("6211235289249397");
+        dto.setName("测试你");
+        dto.setMobile("13456789001");
+        dto.setIdCard("351828201612120823");
+
+        taxMP(dto);
     }
 
     /**
@@ -48,18 +56,18 @@ public class JsoupHttpClientController {
      * http://119.3.230.212/TaxMP/submitAuthInfo.html
      * @throws Exception
      */
-    private static void taxMP() throws Exception {
+    private static void taxMP(JsoupHttpDTO dto) throws Exception {
+
+        Long date = System.currentTimeMillis();
 
         StringBuffer url = new StringBuffer();
         url.append("http://119.3.230.212/TaxMP/submitAuthInfo.html");
 
-        url.append("?merId=89900000046015644730");
-        url.append("&cardNo=6211235289249397");
-        url.append("&name=%E6%B5%8B%E8%AF%95");
-        url.append("&mobile=18163782023");
-        url.append("&idCard=6257038447373579#");
-
-        System.out.println("url:=====" + url);
+        url.append("?merId=" + dto.getMerId());
+        url.append("&cardNo=" + dto.getCardNo());
+        url.append("&name=" + dto.getName());
+        url.append("&mobile=" + dto.getMobile());
+        url.append("&idCard=" + dto.getIdCard());
 
         // 创建webclient
         WebClient webClient = new WebClient();
@@ -77,10 +85,8 @@ public class JsoupHttpClientController {
         HtmlAnchor anchor = (HtmlAnchor) page.getByXPath("//*[@id=\"signBtn\"]").get(0);
         HtmlPage page2 = anchor.click();
 
-        // 输出页面
-        System.out.println("====================================================================================================");
-        System.out.println("====================================================================================================");
-        System.out.println(page2.asXml());
+        System.out.println("url:=====" + url);
+        System.out.println("本次请求耗时 : " + (System.currentTimeMillis() - date));
     }
 
 }
