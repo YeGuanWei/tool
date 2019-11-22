@@ -25,6 +25,7 @@ public class JsoupHttpClientController {
 
     /**
      * https://www.so.com/
+     *
      * @throws Exception
      */
     private static void so() throws Exception {
@@ -45,15 +46,16 @@ public class JsoupHttpClientController {
         // “点击” 搜索
         HtmlPage page2 = btn.click();
         // 选择元素
-        List<HtmlElement> spanList=page2.getByXPath("//h3[@class='res-title']/a");
-        for(int i=0;i<spanList.size();i++) {
+        List<HtmlElement> spanList = page2.getByXPath("//h3[@class='res-title']/a");
+        for (int i = 0; i < spanList.size(); i++) {
             // 输出新页面的文本
-            System.out.println(i+1+"、"+spanList.get(i).asText());
+            System.out.println(i + 1 + "、" + spanList.get(i).asText());
         }
     }
 
     /**
      * http://119.3.230.212/TaxMP/submitAuthInfo.html
+     *
      * @throws Exception
      */
     private static void taxMP(JsoupHttpDTO dto) throws Exception {
