@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/thread")
 public class ThreadController {
 
-    private static long time = 60 * 1000;
+    private static long time = 5 * 1000;
 
     public static void main(String[] args) throws Exception {
+        // normal();
+        // sleep();
+        testWait();
     }
 
     @RequestMapping("/normal")
@@ -27,7 +30,7 @@ public class ThreadController {
     }
 
     @RequestMapping("/wait")
-    public void testWait() {
+    public static void testWait() {
         TestWait t = new TestWait();
         t.start();
     }
@@ -36,7 +39,7 @@ public class ThreadController {
 
 class TestWait extends Thread {
 
-    private static long time = 60 * 1000;
+    private static long time = 5 * 1000;
 
     public synchronized void run() {
         try {
