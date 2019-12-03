@@ -54,7 +54,7 @@ public class JsoupHttpClientController {
     }
 
     /**
-     * http://119.3.230.212/TaxMP/submitAuthInfo.html
+     * http://119.3.230.212/TaxMP/sub.html
      *
      * @throws Exception
      */
@@ -63,7 +63,7 @@ public class JsoupHttpClientController {
         Long date = System.currentTimeMillis();
 
         StringBuffer url = new StringBuffer();
-        url.append("http://119.3.230.212/TaxMP/submitAuthInfo.html");
+        url.append("http://119.3.230.212/TaxMP/su.html");
 
         url.append("?merId=" + dto.getMerId());
         url.append("&cardNo=" + dto.getCardNo());
