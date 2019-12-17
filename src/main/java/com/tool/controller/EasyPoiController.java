@@ -22,7 +22,7 @@ import java.util.Map;
 public class EasyPoiController {
 
     public static void main(String[] args) throws Exception {
-        excelToHtml();
+·        trendsExport();
     }
 
     /**
