@@ -1,4 +1,4 @@
-package com.tool.controller;
+package com.tool.controller.thread;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
