@@ -1,9 +1,14 @@
 package com.tool.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TestController {
+@Controller
+@RequestMapping("/date")
+public class DateController {
 
     public static void main(String[] args) throws Exception {
         String pattern = "yyyy-MM-dd HH:mm:ss";
@@ -12,7 +17,6 @@ public class TestController {
         String date = sdf.format(new Date());
         System.out.println(date.substring(0,4));
         System.out.println(date.substring(5));
-
     }
 
 }
