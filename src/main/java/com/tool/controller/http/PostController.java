@@ -1,4 +1,4 @@
-package com.tool.controller;
+package com.tool.controller.http;
 
 import java.io.BufferedReader;
 import java.io.IOException;

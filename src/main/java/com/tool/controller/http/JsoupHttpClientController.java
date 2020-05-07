@@ -1,10 +1,13 @@
-package com.tool.controller;
-
-import java.util.List;
+package com.tool.controller.http;
 
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.*;
+import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
+import com.gargoylesoftware.htmlunit.html.HtmlElement;
+import com.gargoylesoftware.htmlunit.html.HtmlInput;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.tool.entity.JsoupHttpDTO;
+
+import java.util.List;
 
 /**
  * [Java爬虫] 使用 HtmlUnit + Xpath 模拟点击、动态获取信息

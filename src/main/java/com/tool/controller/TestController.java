@@ -1,17 +1,19 @@
 package com.tool.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class TestController {
 
     public static void main(String[] args) throws Exception {
-        String pattern = "yyyy-MM-dd HH:mm:ss";
-        pattern = "yyyy-MM-dd";
-        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-        String date = sdf.format(new Date());
-        System.out.println(date.substring(0,4));
-        System.out.println(date.substring(5));
+        String inputFile = "C:/usr/local/yth/file/test.docx";
+        String outputFile = "C:/usr/local/yth/file/outTest.docx";
+
+        //加载示例文档
+        Document document = new Document(inputFile);
+
+        //删除第二条批注
+        document.getComments().removeAt(1);
+
+        //保存文档
+        document.saveToFile(outputFile, FileFormat.Docx);
 
     }
 

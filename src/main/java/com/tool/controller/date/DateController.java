@@ -1,4 +1,4 @@
-package com.tool.controller;
+package com.tool.controller.date;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
