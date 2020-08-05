@@ -1,4 +1,4 @@
-package com.tool.utils;
+package com.tool.utils.id;
 
 public class SnowFlakeUtil {
 

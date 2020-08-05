@@ -1,4 +1,4 @@
-package com.tool.utils;
+package com.tool.utils.id;
 
 import java.util.UUID;
 
