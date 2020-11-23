@@ -22,5 +22,4 @@ public class RedisController {
         redisUtil.get(key);
     }
 
-
 }
