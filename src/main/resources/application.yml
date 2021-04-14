@@ -20,3 +20,10 @@ server:
       shutdown-timeout: PT0.1S
     # 连接超时时间（毫秒）
     timeout: PT10S
+
+oss:
+  enable: true
+  endpoint: http://127.0.0.1:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: dev
